@@ -1,0 +1,60 @@
+#pragma GCC optimize("O3,unroll-loops")
+#include <bits/stdc++.h>
+using namespace std;
+#define fastIO() do { ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr); } while(0)
+#define ll long long
+#define vi vector<int>
+#define vll vector<ll>
+#define umpii unordered_map<int,int>
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(),(x).rend()
+#define loop(i,a,b) for(int i=(a);i<(b);++i)
+#define rloop(i,a,b) for(int i=(b)-1; i>=(a);--i)
+#define input(x) for(auto &a:x)cin>>a;
+#define size(x) (int)(x).size()
+#define mp make_pair
+#define vvi vector<vi>
+#define vvll vector<vll>
+#define pll pair<ll,ll>
+#define psb push_back
+#define pop pop_back
+#define f first
+#define s second
+#define ln "\n"
+#define mod (int)(1e9+7)
+#ifndef ONLINE_JUDGE
+#include "debug.h"
+#else
+#define debug(x...)
+#endif
+ 
+ //***************************************************//
+ void solve(){
+   ll n,target;
+   cin>>n>>target;
+   vector<pll>ans(n);
+   for(int i=0;i<n;i++){
+    cin>>ans[i].f;
+    ans[i].s=i;
+   }
+  sort(all(ans));
+  loop(i,0,n-3){
+  loop(j,i+1,n-2){
+  int a=j+1,b=n-1;
+  while(a<b){
+  ll sum=ans[i].f+ans[j].f+ans[a].f+ans[b].f;
+  if(sum==target){
+  cout<<ans[i].s+1<<" "<<ans[j].s+1<<" "<<ans[a].s+1<<" "<<ans[b].s+1<<ln;
+  return;
+  }
+  else if(sum>target)b--;
+  else a++;
+  }
+  }
+  }
+    cout<<"IMPOSSIBLE"<<ln;
+ }
+int main() {
+    fastIO(); 
+    solve();
+}
