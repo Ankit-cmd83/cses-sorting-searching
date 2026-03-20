@@ -1,0 +1,29 @@
+#pragma GCC optimize("O3,unroll-loops")
+#include "bits/stdc++.h"
+// #include "debug.h" 
+using namespace std;
+#define fastIO() ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+#define ll long long
+#define pop pop_back
+#define ln "\n"
+#define psb push_back
+#define all(x) (x).begin(),(x).end()
+#define vi vector<int>
+#define vll vector<ll>
+#define umpii unordered_map<int,int>
+#define umpll unordered_map<ll,ll>
+#define f first
+#define s second
+ 
+int main(){
+    fastIO();
+  int n;
+  cin>>n;
+  set<int>a;
+ for(int i=1;i<=n;i++){
+     int x;
+     cin>>x;
+     a.insert(x);
+ }
+   cout<<a.size()<<ln;
+}
