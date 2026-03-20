@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+  int n,m,k;
+  cin>>n>>m>>k;
+  vector<int>applicants(n),appartments(m);
+  for(auto &i:applicants)cin>>i;
+  for(auto &i:appartments)cin>>i;
+  sort(applicants.begin(),applicants.end());
+  sort(appartments.begin(),appartments.end());
+  int ans=0;
+  int i=0,j=0;
+  while(i<n && j<m){
+  if(appartments[j]>=applicants[i]-k && appartments[j]<=applicants[i]+k){
+    ans++;
+    i++;
+    j++;
+  }
+  else if(appartments[j]<applicants[i]-k)j++;
+  else i++;
+  }
+  cout<<ans<<endl;
+}
